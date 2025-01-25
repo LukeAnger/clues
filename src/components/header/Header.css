@@ -1,0 +1,19 @@
+#app-header {
+    position: relative;
+    padding: 0 1rem;
+    height: 60px;
+    color: black;
+    background-color: #fff;
+}
+/* make sure the second item in app header is centered on the page */
+#app-header-1, #app-header-3 {
+    flex: 1;
+}
+
+#app-header-2 {
+    height: 100%;
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}

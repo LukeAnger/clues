@@ -1,5 +1,6 @@
 {
   "name": "ionic-app-base",
-  "integrations": {},
-  "type": "react-vite"
+  "app_id": "",
+  "type": "react-vite",
+  "integrations": {}
 }
