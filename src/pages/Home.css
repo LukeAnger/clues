@@ -1,3 +1,19 @@
+#home-page {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    gap: 1rem;
+    height: calc(100vh - 60px - 60px);
+}
+
+#home-page-welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #customize-quiz-card {
     display: flex;
     flex-direction: column;
@@ -18,19 +34,4 @@
     background: linear-gradient(351deg, #7a38ff 28.31%, #fa9ffe 115.63%);
     color: white;
     border-radius: 1rem;
-}
-#home-page-welcome {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30%;
-}
-
-#home-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: calc(100vh - 60px - 60px);
 }

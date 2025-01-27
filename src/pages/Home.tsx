@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <Header showBack={false} />
+        <Header leftType="none" midType='logo' rightType='settings' />
 
         <IonContent fullscreen>
           <div id='home-page'>
