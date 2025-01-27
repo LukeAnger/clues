@@ -45,7 +45,6 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 import { FlashcardStoreProvider } from './context/store/flashcardStore';
-import CustomizeQuiz from './pages/CustomizeQuiz';
 
 
 setupIonicReact();
@@ -60,8 +59,6 @@ const App: React.FC = () => {
             <IonRouterOutlet animated={false}>
               
               <Route exact path="/home" component={Home} />
-
-              <Route exact path="/customize-quiz" component={CustomizeQuiz} />
 
               {/* <Route exact path="/tab2" component={Tab2} /> */}
 
