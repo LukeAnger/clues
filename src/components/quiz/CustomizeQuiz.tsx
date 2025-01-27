@@ -13,10 +13,12 @@ import {
   IonCheckbox,
   IonButton,
 } from "@ionic/react";
-import { useStore } from "../context/store/index";
-import { getQuestions } from "../utils/getQuestions";
+import { useStore } from "../../context/store/index";
+import { getQuestions } from "../../utils/getQuestions";
+import { CustomizQuizProps } from "./quizTypings";
+import { h } from "ionicons/dist/types/stencil-public-runtime";
 
-const CustomizeQuiz: React.FC = () => {
+const CustomizeQuiz: React.FC<CustomizQuizProps> = ({ handleShowCustomizeQuiz}) => {
   const { state } = useStore();
   const [selectedConcepts, setSelectedConcepts] = useState<string[]>([]);
 
@@ -32,15 +34,16 @@ const CustomizeQuiz: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
+      history.push("/quiz");
       const questionsResponse = await getQuestions({
         course_id: "37",
         user_id: "9",
         question_count: 10,
         selected_concepts: selectedConcepts,
       });
-
+      
       // Navigate to flashcard lesson with fetched questions
-      history.push("/quiz");
+      handleShowCustomizeQuiz(false);
       console.log("Fetched Questions:", questionsResponse.questions);
     } catch (error) {
       console.error("Error fetching questions:", error);
