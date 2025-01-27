@@ -5,13 +5,43 @@ import Explanation from "./Explanation";
 import { QuizListProps } from "./quizTypings";
 import Hint from "./Hint";
 
-const QuizList: React.FC<QuizListProps> = ({ questions }) => {
+const QuizList: React.FC<QuizListProps> = ({ questions, handleIncrementProgress }) => {
     // console.log("QuizList Questions: ", questions);
     const [currIndex, setCurrIndex] = useState(0);
     const [currSelectedAnswer, setCurrSelectedAnswer] = useState("");
     const [showExplanation, setShowExplanation] = useState(false);
     const [currExplanation, setCurrExplanation] = useState("");
     const [showHint, setShowHint] = useState(false);
+    const [quizStatus, setQuizStatus] = useState({correct: 0, incorrect: 0, finished: false});
+    // console.log("Quiz Status: ", quizStatus);
+    // const handleUpdateQuizStatus = (isCorrect: boolean) => {
+    //     if (isCorrect) {
+    //         setQuizStatus((prev) => ({...prev, correct: prev.correct + 1}));
+    //     } else {
+    //         setQuizStatus((prev) => ({...prev, incorrect: prev.incorrect + 1}));
+    //     }
+    // }
+
+    // const handleEndQuiz = () => {
+    //     setQuizStatus((prev) => ({...prev, finished: true}));
+    // }
+
+    // if (currIndex === questions.length - 1) {
+    //     handleEndQuiz();
+    // }
+
+    // if (quizStatus.finished) {
+    //     return (
+    //         <IonContent>
+    //             <IonCard>
+    //                 <IonTitle>Quiz Finished</IonTitle>
+    //                 <IonTitle>Correct: {quizStatus.correct}</IonTitle>
+    //                 <IonTitle>Incorrect: {quizStatus.incorrect}</IonTitle>
+    //             </IonCard>
+    //         </IonContent>
+    //     );
+    // }
+
 
     const handleNext = () => {
         if (currIndex === questions.length - 1) {
@@ -23,8 +53,9 @@ const QuizList: React.FC<QuizListProps> = ({ questions }) => {
         setCurrSelectedAnswer("");
         setShowHint(false);
         setShowExplanation(false);
+        handleIncrementProgress();
         // unmount explanation and hint
-        
+
     };
 
     const handlePrev = () => {
@@ -38,6 +69,12 @@ const QuizList: React.FC<QuizListProps> = ({ questions }) => {
         setCurrSelectedAnswer(letter);
         setCurrExplanation(questions[currIndex]["Explanation for Options"][letter]);
         setShowHint(false);
+
+        // if (letter === questions[currIndex]["Correct Answer"]) {
+        //     handleUpdateQuizStatus(true);
+        // } else {
+        //     handleUpdateQuizStatus(false);
+        // }
     }
     
     const handleShowExplanation = () => {

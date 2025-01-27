@@ -40,6 +40,7 @@ export interface HintProps {
 
 export interface QuizListProps {
   questions: Question[];
+  handleIncrementProgress: () => void;
 }
 
 export interface QuizListItemProps {
@@ -63,5 +64,5 @@ export interface ProgressBarProps {
 }
 
 export interface CustomizQuizProps {
-  setShowCustomizeQuiz: () => void;
+  handleShowCustomizeQuiz: (show: boolean) => void;
 }

@@ -1,9 +1,7 @@
 #quiz-content {
     height: calc(100vh - 60px - 50px);
 }
-#quiz-content * {
-    /* overflow: hidden; */
-}
+
 #quiz-card {
     position: relative;
     height: 100%;
