@@ -5,11 +5,14 @@ import './Home.css';
 
 import Header from '../components/header/Header';
 import CustomizeQuiz from '../components/quiz/CustomizeQuiz';
+import SuggestedReview from '../components/SuggestedReview';
 
 const Home: React.FC = () => {
-  const history = useHistory();
-  const [showCustomizeQuiz, setShowCustomizeQuiz] = useState(false);
   // console.log("Home");
+  const history = useHistory();
+  
+  // State bool for displaying customize quiz modal. Currently only needed in Home
+  const [showCustomizeQuiz, setShowCustomizeQuiz] = useState(false);
 
   const handleShowCustomizeQuiz = (show: boolean) => {
     setShowCustomizeQuiz(show);
@@ -31,18 +34,8 @@ const Home: React.FC = () => {
                 Customize Quiz
               </IonButton>
             </div>
-            <div id='suggested-review'>
-              Suggested Review
-              <IonButton style={{marginLeft: "auto"}} expand="block">
-                Item1
-              </IonButton>
-              <IonButton style={{marginLeft: "auto"}} expand="block">
-                Item2
-              </IonButton>
-              <IonButton style={{marginLeft: "auto"}} expand="block">
-                Item3
-              </IonButton>
-            </div>
+
+            <SuggestedReview />
 
           </div>
 

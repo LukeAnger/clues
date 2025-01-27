@@ -1,4 +1,5 @@
 #home-page {
+    position: relative;
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
@@ -36,3 +37,45 @@
     color: white;
     border-radius: 1rem;
 }
+
+#customize-quiz-card, #suggested-review-container {
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+#suggested-review-container {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 30%;
+    border-radius: 5px;
+    
+}
+
+.suggestion-header {
+    width: 90%;
+    text-align: center;
+    margin: .25rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.suggestion {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 90%;
+  }
+  
+.suggestion-name {
+font-weight: bold;
+font-size: 1rem;
+}
+
+.suggestion-value {
+font-size: 0.9rem;
+color: #666;
+}
+  
