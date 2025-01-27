@@ -61,3 +61,7 @@ export interface AnswerProps {
 export interface ProgressBarProps {
   progress: number;
 }
+
+export interface CustomizQuizProps {
+  setShowCustomizeQuiz: () => void;
+}

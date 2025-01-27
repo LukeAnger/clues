@@ -4,13 +4,16 @@ import { useHistory } from "react-router-dom";
 import './Home.css';
 
 import Header from '../components/header/Header';
-import CustomizeQuiz from '../components/CustomizeQuiz';
-import { s } from 'vitest/dist/reporters-5f784f42';
+import CustomizeQuiz from '../components/quiz/CustomizeQuiz';
 
 const Home: React.FC = () => {
   const history = useHistory();
   const [showCustomizeQuiz, setShowCustomizeQuiz] = useState(false);
   // console.log("Home");
+
+  const handleShowCustomizeQuiz = (show: boolean) => {
+    setShowCustomizeQuiz(show);
+  }
 
   return (
     <IonPage>
@@ -43,14 +46,24 @@ const Home: React.FC = () => {
 
           </div>
 
-          <IonModal isOpen={showCustomizeQuiz} onDidDismiss={() => setShowCustomizeQuiz(false)}>
-            <IonHeader className='row'>
-              <IonToolbar >
-                <IonTitle>Customize Quiz</IonTitle>
-              </IonToolbar>
-              <IonButton onClick={() => setShowCustomizeQuiz(false)}>Close Modal</IonButton>
-            </IonHeader>
-            <CustomizeQuiz />
+          <IonModal 
+            isOpen={showCustomizeQuiz} 
+            trigger='customize-quiz-button'
+            onDidDismiss={() => handleShowCustomizeQuiz(false)}
+            keepContentsMounted={true}
+            // Breakpoints are currently buggy. Blurry when using them
+            // initialBreakpoint={0.5}
+            // breakpoints={[0, 0.5, 1]}
+            >
+            <IonContent className='ion-padding'>
+              <IonHeader className='row' id="customize-quiz-header">
+                <IonToolbar >
+                  <IonTitle>Customize Quiz</IonTitle>
+                </IonToolbar>
+                <IonButton onClick={() => handleShowCustomizeQuiz(false)}>Close Modal</IonButton>
+              </IonHeader>
+              <CustomizeQuiz handleShowCustomizeQuiz={handleShowCustomizeQuiz} />
+            </IonContent>
           </IonModal>
 
       </IonContent>
