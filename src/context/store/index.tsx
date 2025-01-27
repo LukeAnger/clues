@@ -1,6 +1,4 @@
 import React, { createContext, useContext, useReducer, useEffect, useState } from "react";
-import { counterReducer, initialCounterState } from "../reducers/counterReducer";
-import { CounterActions } from "../actions/counterActions";
 import { getQuestions } from "../../utils/getQuestions";
 import { getTopicMapping } from "../../utils/getTopicMapping";
 import { getNextConcepts } from "../../utils/getNextConcepts";
