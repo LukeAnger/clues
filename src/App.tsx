@@ -12,8 +12,7 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Quiz';
+import Quiz from './pages/Quiz';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -66,7 +65,7 @@ const App: React.FC = () => {
 
               {/* <Route exact path="/tab2" component={Tab2} /> */}
 
-              <Route exact path="/quiz" component={Tab3} />
+              <Route exact path="/quiz" component={Quiz} />
 
               <Route exact path="/">
                 <Redirect to="/home" />
