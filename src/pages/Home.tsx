@@ -1,12 +1,15 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
+import { useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonModal } from '@ionic/react';
 import { useHistory } from "react-router-dom";
 import './Home.css';
 
 import Header from '../components/header/Header';
+import CustomizeQuiz from '../components/CustomizeQuiz';
+import { s } from 'vitest/dist/reporters-5f784f42';
 
 const Home: React.FC = () => {
   const history = useHistory();
-
+  const [showCustomizeQuiz, setShowCustomizeQuiz] = useState(false);
   // console.log("Home");
 
   return (
@@ -14,7 +17,6 @@ const Home: React.FC = () => {
       <IonContent fullscreen>
         <Header leftType="none" midType='logo' rightType='settings' />
 
-        <IonContent fullscreen>
           <div id='home-page'>
             <div id='home-page-welcome'>
               Hello Luke
@@ -22,7 +24,7 @@ const Home: React.FC = () => {
             <div id='customize-quiz-card'>
             Generate Custom Practice Test
             Select from a variety of course concepts for your custom Practice Tests.
-              <IonButton id='customize-quiz-button' fill="clear" style={{marginLeft: "auto"}} expand="block" onClick={() => history.push("/customize-quiz")}>
+              <IonButton id='customize-quiz-button' fill="clear" style={{marginLeft: "auto"}} expand="block" onClick={() => setShowCustomizeQuiz(true)}>
                 Customize Quiz
               </IonButton>
             </div>
@@ -41,7 +43,16 @@ const Home: React.FC = () => {
 
           </div>
 
-        </IonContent>
+          <IonModal isOpen={showCustomizeQuiz} onDidDismiss={() => setShowCustomizeQuiz(false)}>
+            <IonHeader className='row'>
+              <IonToolbar >
+                <IonTitle>Customize Quiz</IonTitle>
+              </IonToolbar>
+              <IonButton onClick={() => setShowCustomizeQuiz(false)}>Close Modal</IonButton>
+            </IonHeader>
+            <CustomizeQuiz />
+          </IonModal>
+
       </IonContent>
     </IonPage>
   );
