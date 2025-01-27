@@ -16,19 +16,21 @@ import {
   IonCardContent,
 } from "@ionic/react";
 import './Quiz.css';
-import QuizList from "../components/quiz/QuizList";
 import Header from "../components/header/Header";
+import QuizList from "../components/quiz/QuizList";
+import { HeaderProps } from "../components/header/headerTypings";
+
 
 
 const Quiz: React.FC = () => {
   const { state } = useStore();
-  console.log("TAB 3 FLASHCARE STATE STORE: ", state);
+  // console.log("Quiz FLASHCARD STATE STORE: ", state);
 
 
 
   return (
     <IonPage id="quiz-page" >
-      <Header showBack={true} />
+      <Header leftType={"backButton"} midType={"logo"} rightType={"none"} />
       <QuizList questions={state.questions} />
     </IonPage>
   );

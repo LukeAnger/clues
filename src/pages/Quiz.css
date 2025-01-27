@@ -1,7 +1,9 @@
 #quiz-content {
-
+    height: calc(100vh - 60px - 50px);
 }
-
+#quiz-content * {
+    /* overflow: hidden; */
+}
 #quiz-card {
     position: relative;
     height: 100%;
@@ -14,7 +16,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: calc(100vh - 60px - 120px);
+    height: calc(100vh - 110px);
 }
 
 #quiz-footer {
@@ -32,7 +34,7 @@
     place-items: center;
     border-radius: 1rem;
     box-shadow: 0 0 5px 0 rgb(19, 63, 116);
-    flex: 1;
+    flex: 4;
     padding: 0.5rem 1rem ;
     text-align: center;
     font-size: 1.3rem;
@@ -44,26 +46,33 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    flex: 3;
+    flex: 4;
 }
 
 #explanation, #hint {
     position: absolute;
+    left: 2.5vw;
     display: grid;
     place-content: center;
     transition: all 0.5s ease-out;
+    width: 95vw;
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 5px 0 rgb(19, 63, 116);
     background-color: var(--light);
+    color: var(--dark);
 }
 
-.answer {
-    
-}
-
-.option {
-    font-size: 1.2rem;
+.answer-container {
+    flex: 1;
+    margin: 1rem 0;
+    width: 88vw;
+    padding: .5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 1px 2px rgb(22, 37, 55);
+    font-size: 1.1rem;
 }
 
 .quiz-buttons {
