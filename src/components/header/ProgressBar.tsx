@@ -3,7 +3,7 @@ import { ProgressBarProps } from '../quiz/quizTypings';
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
     const style = {
-        transform: `translateX(-${100 - progress}%`
+        width: `${progress}%`
     }
     return (
         <div className="progress-bar">
@@ -13,3 +13,5 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
 };
 
 export default ProgressBar;
+
+

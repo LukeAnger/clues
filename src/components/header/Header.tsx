@@ -9,6 +9,16 @@ import { HeaderProps } from "./headerTypings";
 
 const Header: React.FC<HeaderProps> = ({leftType, midType, rightType, progress}) => {
     // console.log("Header: ", showBack);
+    const renderMidContent = () => {
+        switch (midType) {
+          case "logo":
+            return <CluesLogo />;
+          case "progressBar":
+            return progress !== undefined ? <ProgressBar progress={progress} /> : null;
+          default:
+            return null;
+        }
+      };
 
     return (
         <IonHeader className="row jc-sb ai-c" id="app-header">
@@ -17,8 +27,7 @@ const Header: React.FC<HeaderProps> = ({leftType, midType, rightType, progress})
             </div>
             <div id="app-header-2">
                 
-                {midType === "logo" && <CluesLogo />}
-                {midType === "progressBar" && progress && <ProgressBar progress={progress} />}
+                {renderMidContent()}
 
             </div>
             <div id="app-header-3" className="grid-center">
