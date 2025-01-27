@@ -22,6 +22,9 @@ const QuizList: React.FC<QuizListProps> = ({ questions }) => {
         setCurrExplanation("");
         setCurrSelectedAnswer("");
         setShowHint(false);
+        setShowExplanation(false);
+        // unmount explanation and hint
+        
     };
 
     const handlePrev = () => {
