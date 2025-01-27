@@ -56,7 +56,7 @@ const QuizList: React.FC<QuizListProps> = ({ questions }) => {
 
     return (
         <>
-            <IonContent fullscreen id="quiz-content">
+            <div  id="quiz-content">
                 <IonCard id="quiz-card" key={currIndex}>
                     <QuizListItem 
                         question={currentQuestion} 
@@ -72,14 +72,14 @@ const QuizList: React.FC<QuizListProps> = ({ questions }) => {
                 
                 <Explanation explanation={currExplanation} showExplanation={showExplanation} />
                 <Hint hint={currentQuestion.Hint} showHint={showHint} />
-            </IonContent>
+            </div>
             <IonFooter >
                 <IonToolbar id="quiz-footer" >
                     {/* <IonButton disabled={currIndex === 0 ? true: false} onClick={handlePrev}>Previous</IonButton> */}
                     <IonButton className="quiz-buttons" slot="start" disabled={currSelectedAnswer !== ""} onClick={handleShowHint}>
                         Hint
                     </IonButton>
-                    <IonTitle>
+                    <IonTitle className="ion-text-center">
                         <IonButton disabled={currSelectedAnswer === ""} onClick={handleNext}>
                             Continue
                         </IonButton>
