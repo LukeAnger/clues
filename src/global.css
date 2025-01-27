@@ -11,6 +11,10 @@
     --black: #000;
 }
 
+ion-modal::part(handle) {
+    transform: none !important;
+  }
+
 #logo {
     fill: rgb(64, 64, 255);
 }
