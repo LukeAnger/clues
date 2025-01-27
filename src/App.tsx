@@ -58,7 +58,6 @@ const App: React.FC = () => {
               
               <Route exact path="/home" component={Home} />
 
-              {/* <Route exact path="/tab2" component={Tab2} /> */}
               <QuizProvider>
                 <Route exact path="/quiz" component={Quiz} />
               </QuizProvider>
@@ -78,7 +77,7 @@ const App: React.FC = () => {
 
 const TabBar: React.FC = () => {
   const location = useLocation();
-  const tabBarLocations = ['/home', '/tab2', 'customize-quiz'];
+  const tabBarLocations = ['/home', 'customize-quiz'];
   const showTabBar = tabBarLocations.includes(location.pathname);
   // console.log('SHOW TAB BAR:', showTabBar);
   return (
@@ -89,10 +88,7 @@ const TabBar: React.FC = () => {
           <IonIcon aria-hidden="true" icon={triangle} />
           <IonLabel>Home</IonLabel>
         </IonTabButton>
-        {/* <IonTabButton tab="tab2" href="/tab2">
-          <IonIcon aria-hidden="true" icon={ellipse} />
-          <IonLabel>Tab 2</IonLabel>
-        </IonTabButton> */}
+        
         <IonTabButton tab="quiz" href="/quiz">
           <IonIcon aria-hidden="true" icon={square} />
           <IonLabel>Quiz</IonLabel>

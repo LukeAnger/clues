@@ -27,7 +27,6 @@ interface StoreContextType {
   
   // StoreProvider component
   export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    // const [state, dispatch] = useReducer(counterReducer, initialCounterState);
   
     // Single state object for all fetched data
     const [state, setState] = useState<{
