@@ -14,6 +14,8 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
 
+import { QuizProvider } from './context/store/quizStore';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -44,15 +46,11 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { FlashcardStoreProvider } from './context/store/flashcardStore';
-
-
 setupIonicReact();
 
 const App: React.FC = () => {
   // console.log('APP');
   return (
-    <FlashcardStoreProvider>
       <IonApp>
         <IonReactRouter>
           <IonTabs>
@@ -61,8 +59,9 @@ const App: React.FC = () => {
               <Route exact path="/home" component={Home} />
 
               {/* <Route exact path="/tab2" component={Tab2} /> */}
-
-              <Route exact path="/quiz" component={Quiz} />
+              <QuizProvider>
+                <Route exact path="/quiz" component={Quiz} />
+              </QuizProvider>
 
               <Route exact path="/">
                 <Redirect to="/home" />
@@ -74,7 +73,6 @@ const App: React.FC = () => {
           </IonTabs>
         </IonReactRouter>
       </IonApp>
-    </FlashcardStoreProvider>
   );
 };
 
