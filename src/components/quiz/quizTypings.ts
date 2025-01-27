@@ -15,6 +15,8 @@ export interface Question {
   ["Match Count"]: number;
 }
 
+export type AnswerKey = "A" | "B" | "C" | "D";
+
 export interface ExplanationForOptions {
   [key: string]: string;
 }
@@ -53,4 +55,9 @@ export interface QuizListItemProps {
 export interface AnswerProps {
   answer: Answer;
   handleSelectAnswer: (answer: string) => void;
+  currSelectedAnswer: string;
+}
+
+export interface ProgressBarProps {
+  progress: number;
 }
